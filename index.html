@@ -172,7 +172,80 @@ section.c{padding:0;margin:0 0 12px;border:0}
 .cl[open] .chev::after{transform:translate(-50%,-50%) rotate(0)}
 .cl .bi{margin:0 22px;padding:22px 0 24px;border-top:1px solid var(--line)}
 @media print{.chev,.tools,.th .note,.sm{display:none}.cl{border-color:#999;box-shadow:none}}
-.logo .brand-mark{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;font:700 34px/1 Georgia,"Times New Roman",serif;color:var(--text);transform:translateY(-1px)}</style>
+.logo .brand-mark{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;font:700 34px/1 Georgia,"Times New Roman",serif;color:var(--text);transform:translateY(-1px)}
+/* DOPAMINE BAR */
+.dopamine-chips{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:9px;
+}
+.dchip{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  min-height:40px;
+  padding:8px 13px;
+  border:2px solid var(--line2);
+  border-radius:999px;
+  background:rgba(3,7,16,.78);
+  color:var(--text);
+  text-decoration:none;
+  font:700 12px var(--f);
+  letter-spacing:.045em;
+  text-transform:uppercase;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.dchip:hover{
+  transform:translateY(-3px) rotate(-1deg);
+  border-color:#426cff;
+  box-shadow:4px 5px 0 rgba(66,108,255,.22);
+}
+.dchip.streams{border-color:#426cff}
+.dchip.streams strong{font-size:18px;letter-spacing:0}
+.dchip.streams small{color:var(--muted);font-size:9px}
+.dchip.streams i{
+  width:7px;height:7px;border-radius:50%;background:#ff3045;
+  animation:stream-pulse 1.8s infinite;
+}
+.dchip.beats{
+  background:#ff3045;color:#fff;border-color:#050505;
+  box-shadow:3px 3px 0 #050505;
+}
+.dchip.beats:hover{background:#fff;color:#050505}
+.dchip.lang{color:var(--muted);background:transparent}
+
+#star{
+  transform-origin:center;
+  animation:star-life 6.2s ease-in-out infinite;
+}
+#star-tongue{
+  transform-origin:50% 0%;
+  opacity:0;
+  animation:tongue-life 6.2s ease-in-out infinite;
+}
+@keyframes star-life{
+  0%,76%,100%{transform:translateY(0) rotate(0) scale(1)}
+  79%{transform:translateY(-4px) rotate(-2deg) scale(1.02)}
+  82%{transform:translateY(0) rotate(2deg) scale(1.01)}
+  86%{transform:translateY(0) rotate(0) scale(1)}
+}
+@keyframes tongue-life{
+  0%,80%,100%{opacity:0;transform:scaleY(.15)}
+  82%,89%{opacity:1;transform:scaleY(1)}
+  92%{opacity:0;transform:scaleY(.15)}
+}
+@keyframes stream-pulse{
+  0%{box-shadow:0 0 0 0 rgba(255,48,69,.65)}
+  70%{box-shadow:0 0 0 7px rgba(255,48,69,0)}
+  100%{box-shadow:0 0 0 0 rgba(255,48,69,0)}
+}
+@media(prefers-reduced-motion:reduce){
+  #star,#star-tongue,.dchip.streams i{animation:none}
+  #star-tongue{opacity:0}
+}
+
+</style>
 </head>
 <body data-lang="both">
 <div id="prog"></div>
@@ -206,12 +279,17 @@ section.c{padding:0;margin:0 0 12px;border:0}
 <a class="btn" href="#licenses"><span class="en">See licenses</span><span class="es">Ver licencias</span></a>
 <a class="btn y" href="#music"><span class="en">Listen now</span><span class="es">Escuchar</span></a>
 </div>
-<div class="chips"><span>+1.5M STREAMS / ALL PLATFORMS</span><span>19 <span class="en">clauses</span><span class="es">cláusulas</span></span><span>EN · ES</span><span><span class="en">WAV from</span><span class="es">WAV desde</span> USD 60</span></div>
+<div class="chips dopamine-chips">
+<a class="dchip streams" href="#music"><i></i><strong>+1.5M</strong> STREAMS <small>/ ALL PLATFORMS</small></a>
+<a class="dchip beats" href="#licenses">✦ WAV LEASE · USD 60</a>
+<a class="dchip terms" href="#terms">§ 19 LICENSE TERMS</a>
+<span class="dchip lang">EN <b>·</b> ES</span>
+</div>
 <div class="upd">Last Updated / Última actualización: October 2026 / Octubre de 2026</div>
 </div>
 <div class="badge" aria-hidden="true">
 <svg class="ring" viewBox="0 0 200 200"><defs><path id="c" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs><text fill="currentColor" textLength="498" lengthAdjust="spacing"><textPath href="#c">PROD ✦ MIX ✦ MASTER ✦ PROD ✦ MIX ✦ MASTER ✦</textPath></text></svg>
-<svg class="star" id="star" viewBox="0 0 200 200"><polygon points="100,15 122.3,69.3 180.8,73.7 136.1,111.7 150,168.8 100,138 50,168.8 63.9,111.7 19.2,73.7 77.7,69.3" fill="#fff" stroke="#050505" stroke-width="6" stroke-linejoin="round"/><circle cx="86" cy="96" r="9" fill="#fff" stroke="#050505" stroke-width="3"/><circle cx="114" cy="96" r="9" fill="#fff" stroke="#050505" stroke-width="3"/><circle cx="88" cy="97" r="3.6" fill="#050505"/><circle cx="116" cy="97" r="3.6" fill="#050505"/><path d="M88 118q12 9 24 0" fill="none" stroke="#050505" stroke-width="4" stroke-linecap="round"/></svg>
+<svg class="star" id="star" viewBox="0 0 200 200"><polygon points="100,15 122.3,69.3 180.8,73.7 136.1,111.7 150,168.8 100,138 50,168.8 63.9,111.7 19.2,73.7 77.7,69.3" fill="#fff" stroke="#050505" stroke-width="6" stroke-linejoin="round"/><circle cx="86" cy="96" r="9" fill="#fff" stroke="#050505" stroke-width="3"/><circle cx="114" cy="96" r="9" fill="#fff" stroke="#050505" stroke-width="3"/><circle cx="88" cy="97" r="3.6" fill="#050505"/><circle cx="116" cy="97" r="3.6" fill="#050505"/><path d="M88 118q12 9 24 0" fill="none" stroke="#050505" stroke-width="4" stroke-linecap="round"/><path id="star-tongue" d="M96 119q4 5 8 0q4 5 8 0q-1 12-8 12q-7 0-8-12z" fill="#ff3f63" stroke="#050505" stroke-width="2"/></svg>
 <img id="logo" alt="">
 </div>
 </div></div>
